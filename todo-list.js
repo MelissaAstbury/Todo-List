@@ -4,24 +4,16 @@ let input = prompt("What would you like to do?");
 
 while (input !== "quit") {
   if (input === "list") {
-    console.log("**********");
-    todos.forEach(function(todos, i) {
-      console.log(i + ": " + todos);
-    });
-    console.log("**********");
-    console.log(todos);
+    listTodos();
   } else if (input === "new") {
-    let newTodo = prompt("What is your new task?");
-    todos.push(newTodo);
-    console.log("added todo");
-  } else if (input === "2") {
-    let thirdTodo = prompt("Enter new todo to the front");
-    todos.unshift(thirdTodo);
+    newTodo();
   } else if (input === "delete") {
-    let index = prompt("What do you want to delete?");
-    todos.splice(index, 1);
-    console.log("deleted todo");
+    deleteTodo();
   }
+  //   else if (input === "2") {
+  //     let thirdTodo = prompt("Enter new todo to the front");
+  //     todos.unshift(thirdTodo);
+  //   }
 
   input = prompt("What would you like to do?");
 }
@@ -29,6 +21,28 @@ while (input !== "quit") {
 // todos.push("Do my Nails");
 
 console.log(todos, "okay you quit the app");
+
+function listTodos() {
+  console.log("**********");
+  todos.forEach(function(todos, i) {
+    //console.log(i + ": " + todos);
+    console.log(`${i}: ${todos}`);
+  });
+  console.log("**********");
+  console.log(todos);
+}
+
+function newTodo() {
+  let newTodo = prompt("What is your new task?");
+  todos.push(newTodo);
+  console.log(`added ${newTodo} as a todo`);
+}
+
+deleteTodo = () => {
+  let index = prompt("What do you want to delete?");
+  todos.splice(index, 1);
+  console.log("deleted todo");
+};
 
 //todos.pop();
 
